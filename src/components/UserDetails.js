@@ -1,29 +1,30 @@
+import React from "react";
 import { useParams } from "react-router-dom";
+import useFetch from "../hooks/useFetch.js";
 
-function UserDetails({ users }) {
-  const param = useParams();
+function UserDetails() {
+  const { id } = useParams();
+  const user = useFetch(id);
+
+  if (!user) return <h1>Loading...</h1>;
 
   return (
     <div>
-      <h1>
-        <span style={{ fontWeight: "bold" }}>Name:</span>{" "}
-        {users[param.id - 1].name}
-      </h1>
+      <h1>User Details</h1>
       <p>
-        <span style={{ fontWeight: "bold" }}>Username:</span>{" "}
-        {users[param.id - 1].username}
+        <span style={{ fontWeight: "bold" }}>Name:</span> {user.name}
       </p>
       <p>
-        <span style={{ fontWeight: "bold" }}>Email:</span>{" "}
-        {users[param.id - 1].email}
+        <span style={{ fontWeight: "bold" }}>Username:</span> {user.username}
       </p>
       <p>
-        <span style={{ fontWeight: "bold" }}>Phone:</span>{" "}
-        {users[param.id - 1].phone}
+        <span style={{ fontWeight: "bold" }}>Email:</span> {user.email}
       </p>
       <p>
-        <span style={{ fontWeight: "bold" }}>Website:</span>{" "}
-        {users[param.id - 1].website}
+        <span style={{ fontWeight: "bold" }}>Phone:</span> {user.phone}
+      </p>
+      <p>
+        <span style={{ fontWeight: "bold" }}>Website:</span> {user.website}
       </p>
     </div>
   );
