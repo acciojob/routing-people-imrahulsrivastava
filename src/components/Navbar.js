@@ -1,12 +1,13 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 function Navbar() {
+  const { pathname } = useLocation();
+  const headingText = pathname === "/" ? "User List" : "User Details";
+
   return (
     <div>
-      <Link to={"/"}>
-        <h1>Home</h1>
-      </Link>
+      <h1>{headingText}</h1>
     </div>
   );
 }
