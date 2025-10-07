@@ -5,7 +5,7 @@ import useFetch from "../hooks/useFetch.js";
 function Home() {
   const users = useFetch();
 
-  if (!users) return <h1>Loading ...</h1>;
+  if (!users) return <div>Loading ...</div>;
 
   return (
     <div>

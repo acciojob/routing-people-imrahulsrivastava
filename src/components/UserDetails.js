@@ -6,7 +6,7 @@ function UserDetails() {
   const { id } = useParams();
   const user = useFetch(id);
 
-  if (!user) return <h1>Loading...</h1>;
+  if (!user) return <div>Loading...</div>;
 
   return (
     <div>
